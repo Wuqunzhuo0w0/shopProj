@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+    <!-- 默认配置，如果没有指定则使用这个配置 -->
+
+    <!-- 命名的配置,可以通过方法调用实现 -->
+    <named-config name="MyConfig">
+        <property name="user">root</property>
+        <property name="password"></property>
+        <property name="jdbcUrl">jdbc:mysql://localhost:3307/tfkzgo?useSSL=false&amp;serverTimezone=GMT%2B8&amp;characterEncoding=utf8</property>
+        <property name="driverClass">com.mysql.cj.jdbc.Driver</property>
+        <property name="acquireIncrement">5</property>
+        <property name="initialPoolSize">10</property>
+        <property name="minPoolSize">5</property>
+        <property name="maxPoolSize">50</property>
+
+        <!-- 连接池维护的 statement数量 和每个链接最大使用的statement的数量 -->
+        <property name="maxStatements">20</property>
+        <property name="maxStatementsPerConnection">5</property>
+
+    </named-config>
+</c3p0-config>

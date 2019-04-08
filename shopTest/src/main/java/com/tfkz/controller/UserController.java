@@ -35,7 +35,21 @@ public class UserController extends HttpServlet {
             case "register":
                 register(request, response);
                 break;
+            case "check_valid":
+                check_valid(request,response);
+                break;
         }
+    }
+
+    private void check_valid(HttpServletRequest request, HttpServletResponse response) {
+        ServerResponse sr = null;
+
+        String uname = request.getParameter("uname");
+
+        //返回校验信息
+        sr = userService.check_valid(uname);
+
+        UrlSetUtils.BackToJson(sr,response);
     }
 
     private void register(HttpServletRequest request, HttpServletResponse response) {

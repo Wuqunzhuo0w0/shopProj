@@ -113,5 +113,29 @@ public class UserServiceImpl implements UserService {
         return sr;
     }
 
+    @Override
+    public ServerResponse check_valid(String uname) {
+
+        ServerResponse sr = null;
+        //检查用户名是否为空
+        if(uname==""||uname==null){
+            sr = ServerResponse.createServerResponseByError(Const.ReponseCodeEnum.EMPTY_USERNAME.getCode(),
+                    Const.ReponseCodeEnum.EMPTY_USERNAME.getDescrib());
+            return sr;
+        }
+
+        //检查用户是否已存在
+        UserIn check = ud.selectByUsername(uname);
+        if(check==null){
+            sr = ServerResponse.createServerResponseByError(Const.ReponseCodeEnum.INEXISTENCE_USER.getCode(),
+                    Const.ReponseCodeEnum.INEXISTENCE_USER.getDescrib());
+            return sr;
+        }
+        //用户名校验成功 并返回状态码
+        sr = ServerResponse.createServerResponseBySuccess(Const.ReponseCodeEnum.SUCCESS_MSG.getDescrib());
+
+        return sr;
+    }
+
 
 }

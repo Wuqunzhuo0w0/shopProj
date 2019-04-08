@@ -68,7 +68,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public int insertByUnameAndPsd(String uname, String psd, String email, String phone, String question, String answer) {
         //创建DBUtils核心类
-        QueryRunner qr = new QueryRunner(new ComboPooledDataSource());
+        QueryRunner qr = new QueryRunner(new ComboPooledDataSource("MyConfig"));
 
         //搜索数据库中是否存在对应用户
         String sql = "INSERT INTO `neuedu_user` (`id`, `username`, `password`, `email`, `phone`, `question`, `answer`, `role`, `create_time`, `update_time`) " +

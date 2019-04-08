@@ -23,5 +23,9 @@ public class ResponseCode {
     /*用户不存在状态码*/
     public static final int INEXISTENCE_USER = 101;
 
+    /*用户注册失败状态码：用户已存在*/
+    public static final int EXIST_USER=1;
 
+    /*用户注册失败状态码：邮箱已存在*/
+    public static final int EXIST_EMAIL=2;
 }

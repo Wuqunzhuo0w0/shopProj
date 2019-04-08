@@ -20,6 +20,10 @@ public class Const {
         EMPTY_QUESTION(ResponseCode.ERROR, "问题不能为空"),
         EMPTY_ANSWER(ResponseCode.ERROR, "答案不能为空"),
         INEXISTENCE_USER(ResponseCode.INEXISTENCE_USER, "用户名不存在"),
+        EXIST_USER(ResponseCode.EXIST_USER,"用户名已存在"),
+        EXIST_EMAIL(ResponseCode.EXIST_EMAIL,"邮箱已注册"),
+        SUCCESS_USER(ResponseCode.SUCESS,"用户注册成功"),
+        SUCCESS_MSG(ResponseCode.SUCESS,"校验成功"),
         ;
 
         private int code;

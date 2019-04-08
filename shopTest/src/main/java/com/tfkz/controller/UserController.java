@@ -39,6 +39,18 @@ public class UserController extends HttpServlet {
     }
 
     private void register(HttpServletRequest request, HttpServletResponse response) {
+        ServerResponse sr = null;
+
+        String uname = request.getParameter("uname");
+        String password = request.getParameter("psd");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        String question = request.getParameter("quest");
+        String answer = request.getParameter("answer");
+
+        sr = userService.register(uname,password,email,phone,question,answer);
+
+        UrlSetUtils.BackToJson(sr,response);
 
     }
 

@@ -48,4 +48,37 @@ public class UserDaoImpl implements UserDao {
         }
         return null;
     }
+
+    @Override
+    public UserIn selectByEmail(String email) {
+        QueryRunner qr = new QueryRunner(new ComboPooledDataSource("MyConfig"));
+        String sql = "SELECT email from neuedu_user where email=?";
+        UserIn u = null;
+        try {
+            u = qr.query(sql,new BeanHandler<>(UserIn.class),email);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if(u!=null){
+            return u;
+        }
+        return null;
+    }
+
+    @Override
+    public int insertByUnameAndPsd(String uname, String psd, String email, String phone, String question, String answer) {
+        //创建DBUtils核心类
+        QueryRunner qr = new QueryRunner(new ComboPooledDataSource());
+
+        //搜索数据库中是否存在对应用户
+        String sql = "INSERT INTO `neuedu_user` (`id`, `username`, `password`, `email`, `phone`, `question`, `answer`, `role`, `create_time`, `update_time`) " +
+                "VALUES (null, ?, ?, ?, ?, ?, ?, 1, NOW(),NOW())";
+        Integer a = 0;
+        try {
+            a = qr.update(sql,uname,psd,email,phone,question,answer);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return a;
+    }
 }

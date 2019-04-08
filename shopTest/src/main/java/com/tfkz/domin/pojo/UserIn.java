@@ -8,12 +8,13 @@ import lombok.ToString;
 @Setter
 @ToString
 public class UserIn {
-    String username;
-    String password;
-    String email;
-    String phone;
-    String question;
-    String answer;
-    String role;
+    private int id;
+    private String username;
+    private String password;
+    private String email;
+    private String phone;
+    private String question;
+    private String answer;
+    private String role;
 
 }

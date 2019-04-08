@@ -12,14 +12,14 @@
     <link rel="stylesheet" href="css/bootstrap.css">
 
 </head>
-<body>
-<h1>中文汉字</h1>
+<body style="background-color: skyblue">
+
 <div class="container">
-    <div class="container-signin" style="height: 30%; width: 40% ; margin:0 auto ">
+    <div class="container-signin" style="height: 30%; width: 40% ; margin:10%  auto ;">
         <form class="form-signin" action="/tfkz/user/login" method="post">
             <h2 class="form-signin-heading">Please sign in</h2>
-            <label for="email" class="sr-only">Email address</label>
-            <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required autofocus>
+            <label for="uname" class="sr-only">Username</label>
+            <input type="text" name="uname" id="uname" class="form-control" placeholder="Username" required autofocus>
             <label for="psd" class="sr-only">Password</label>
             <input type="password"  name="psd" id="psd" class="form-control" placeholder="Password" required>
             <div class="checkbox">

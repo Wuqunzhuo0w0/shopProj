@@ -1,8 +1,10 @@
 package com.tfkz.services;
 
-import com.tfkz.domin.pojo.UserIn;
+import com.tfkz.common.ServerResponse;
+
+import javax.servlet.http.HttpSession;
 
 public interface UserService {
     //用户登录
-    UserIn login(String uname, String password);
+    ServerResponse login(HttpSession session,String uname, String password);
 }

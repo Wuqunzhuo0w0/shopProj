@@ -49,16 +49,18 @@ public class UserServiceImpl implements UserService {
             return sr;
         }
 
-        //保存session
-        session.setAttribute(Const.RoleEnum.ROLE_CUSTOMER.getDescrib(),u);
 
         //返回用户详细信息的数据时，不能把密码一块返回
         UserIn u2 = new UserIn();
+        u2.setId(u.getId());
         u2.setUsername(u.getUsername());
         u2.setPassword("");
         u2.setEmail(u.getEmail());
         u2.setPhone(u.getPhone());
         u2.setRole(u.getRole());
+
+        //保存session
+        session.setAttribute(Const.RoleEnum.ROLE_CUSTOMER.getDescrib(),u2);
 
         sr = ServerResponse.createServerResponseBySuccess(u2);
         //成功返回数据
@@ -114,26 +116,75 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ServerResponse check_valid(String uname) {
+    public ServerResponse check_valid(String str,String type) {
 
         ServerResponse sr = null;
         //检查用户名是否为空
+        /*
         if(uname==""||uname==null){
             sr = ServerResponse.createServerResponseByError(Const.ReponseCodeEnum.EMPTY_USERNAME.getCode(),
                     Const.ReponseCodeEnum.EMPTY_USERNAME.getDescrib());
             return sr;
-        }
+        }*/
 
-        //检查用户是否已存在
-        UserIn check = ud.selectByUsername(uname);
-        if(check==null){
-            sr = ServerResponse.createServerResponseByError(Const.ReponseCodeEnum.INEXISTENCE_USER.getCode(),
-                    Const.ReponseCodeEnum.INEXISTENCE_USER.getDescrib());
-            return sr;
+        //检查用户 |  邮箱是否已存在
+        UserIn check;
+        if(type.equals("uname")) {
+            check = ud.selectByUsername(str);
+            if (check != null) {
+                System.out.println("check!=null");
+                sr = ServerResponse.createServerResponseByError(Const.ReponseCodeEnum.EXIST_USER.getCode(),
+                        Const.ReponseCodeEnum.EXIST_USER.getDescrib());
+                return sr;
+            }
+        }else if (type.equals("email")){
+            check = ud.selectByEmail(str);
+            if(check != null){
+                System.out.println("check!=null");
+                sr = ServerResponse.createServerResponseByError(Const.ReponseCodeEnum.EXIST_EMAIL.getCode(),
+                        Const.ReponseCodeEnum.EXIST_EMAIL.getDescrib());
+                return sr;
+            }
         }
         //用户名校验成功 并返回状态码
         sr = ServerResponse.createServerResponseBySuccess(Const.ReponseCodeEnum.SUCCESS_MSG.getDescrib());
+        return sr;
+    }
 
+    @Override
+    public ServerResponse get_user_info(HttpSession session) {
+        ServerResponse sr = null;
+        UserIn user = (UserIn) session.getAttribute(Const.RoleEnum.ROLE_CUSTOMER.getDescrib());
+        if(user==null){
+            sr = ServerResponse.createServerResponseByError(Const.ReponseCodeEnum.WITHOUT_LOGIN_USER.getCode(),
+                    Const.ReponseCodeEnum.WITHOUT_LOGIN_USER.getDescrib());
+            return  sr;
+        }
+        sr = ServerResponse.createServerResponseBySuccess(user);
+        return sr;
+    }
+
+    @Override
+    public ServerResponse forget_get_question(String username) {
+        ServerResponse sr = null;
+        if(username==null){
+            sr = ServerResponse.createServerResponseByError(Const.ReponseCodeEnum.EMPTY_USERNAME.getCode(),
+                    Const.ReponseCodeEnum.EMPTY_USERNAME.getDescrib());
+            return sr;
+        }
+        UserIn user = ud.selectByUsername(username);
+        if(user==null){
+            sr = ServerResponse.createServerResponseByError(Const.ReponseCodeEnum.INEXISTENCE_USER.getCode(),
+                    Const.ReponseCodeEnum.INEXISTENCE_USER.getDescrib());
+            return sr;
+        }else {
+            if(user.getQuestion()==null){
+                sr = ServerResponse.createServerResponseByError(Const.ReponseCodeEnum.UNINITIALIZE_QIESTION.getCode(),
+                        Const.ReponseCodeEnum.UNINITIALIZE_QIESTION.getDescrib());
+                return sr;
+            }
+        }
+        sr = ServerResponse.createServerResponseBySuccess(user.getQuestion());
         return sr;
     }
 

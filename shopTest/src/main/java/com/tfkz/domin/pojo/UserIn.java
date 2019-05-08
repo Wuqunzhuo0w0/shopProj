@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @ToString
@@ -16,5 +18,6 @@ public class UserIn {
     private String question;
     private String answer;
     private String role;
-
+    private Date createTime;
+    private Date updateTime;
 }

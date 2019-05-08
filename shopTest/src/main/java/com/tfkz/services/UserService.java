@@ -9,5 +9,9 @@ public interface UserService {
     ServerResponse login(HttpSession session,String uname, String password);
     ServerResponse register(String uname,String psd,String email,String phone,String question,String answer);
 
-    ServerResponse check_valid(String uname);
+    ServerResponse check_valid(String str,String type);
+
+    ServerResponse get_user_info(HttpSession session);
+
+    ServerResponse forget_get_question(String username);
 }

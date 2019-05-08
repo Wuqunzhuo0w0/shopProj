@@ -5,13 +5,25 @@
       <artifact name="shopTest:war exploded" />
     </artifacts-to-build>
   </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/services/impl/UserServiceImpl.java" line="133" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="5bbdc615-b94a-4b91-8a7b-a13c0bbd683b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/common/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/common/Const.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/common/ResponseCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/common/ResponseCode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/dao/impl/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/dao/impl/UserDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/domin/pojo/UserIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/domin/pojo/UserIn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/services/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/services/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopTest/target/classes/com/tfkz/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/shopTest/target/classes/com/tfkz/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopTest/target/classes/com/tfkz/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/shopTest/target/classes/com/tfkz/services/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopTest/target/classes/com/tfkz/services/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/shopTest/target/classes/com/tfkz/services/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopTest/target/shopProj/WEB-INF/classes/com/tfkz/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/shopTest/target/shopProj/WEB-INF/classes/com/tfkz/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopTest/target/shopProj/WEB-INF/classes/com/tfkz/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/shopTest/target/shopProj/WEB-INF/classes/com/tfkz/services/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopTest/target/shopProj/WEB-INF/classes/com/tfkz/services/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/shopTest/target/shopProj/WEB-INF/classes/com/tfkz/services/impl/UserServiceImpl.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/shopTest/target/" />
@@ -25,12 +37,13 @@
     <session id="1713662398">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="17" />
-          <entry key="project.open.time.1" value="2" />
+          <entry key="project.closed" value="20" />
+          <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.107" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="3" />
-          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.32" value="1" />
           <entry key="project.open.time.33" value="1" />
           <entry key="project.open.time.37" value="2" />
@@ -38,41 +51,41 @@
           <entry key="project.open.time.40" value="2" />
           <entry key="project.open.time.44" value="2" />
           <entry key="project.open.time.78" value="1" />
-          <entry key="project.opened" value="18" />
+          <entry key="project.opened" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="3" />
+          <entry key="class" value="4" />
           <entry key="css" value="1" />
           <entry key="fxml" value="1" />
-          <entry key="java" value="46" />
+          <entry key="java" value="60" />
           <entry key="js" value="1" />
-          <entry key="jsp" value="6" />
+          <entry key="jsp" value="7" />
           <entry key="tld" value="2" />
-          <entry key="xml" value="12" />
+          <entry key="xml" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="3" />
+          <entry key="CLASS" value="4" />
           <entry key="CSS" value="1" />
-          <entry key="JAVA" value="46" />
-          <entry key="JSP" value="6" />
+          <entry key="JAVA" value="60" />
+          <entry key="JSP" value="7" />
           <entry key="JavaScript" value="1" />
-          <entry key="XML" value="15" />
+          <entry key="XML" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="5774" />
+          <entry key="java" value="7059" />
           <entry key="jsp" value="265" />
           <entry key="xml" value="95" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5774" />
+          <entry key="JAVA" value="7059" />
           <entry key="JSP" value="265" />
           <entry key="XML" value="95" />
         </counts>
@@ -84,8 +97,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="81" column="27" selection-start-line="81" selection-start-column="27" selection-end-line="81" selection-end-column="27" />
+            <state relative-caret-position="-133">
+              <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
               <folding>
                 <element signature="method#doPost#0;class#UserController#0" />
               </folding>
@@ -93,11 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/dao/impl/UserDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="67" column="13" lean-forward="true" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
+            <state relative-caret-position="190">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -106,21 +119,14 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/utils/UrlSetUtils.java">
+        <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/services/impl/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="7" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/domin/pojo/UserIn.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="9" selection-end-column="21" />
+            <state relative-caret-position="210">
+              <caret line="174" column="34" selection-start-line="174" selection-start-column="34" selection-end-line="174" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#register#0;class#UserServiceImpl#0" />
+                <element signature="method#check_valid#0;class#UserServiceImpl#0" />
               </folding>
             </state>
           </provider>
@@ -129,20 +135,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/common/ResponseCode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="305">
+              <caret line="43" column="12" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/services/impl/UserServiceImpl.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/dao/UserDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="133">
+              <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -150,8 +153,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/services/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+            <state relative-caret-position="285">
+              <caret line="15" column="18" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -162,10 +165,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/common/ServerResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
+            <state relative-caret-position="988">
+              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#972#973#0" expanded="true" />
+                <element signature="e#1034#1035#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -207,17 +212,17 @@
         <option value="$PROJECT_DIR$/shopTest/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/shopTest/src/main/webapp/home.jsp" />
         <option value="$PROJECT_DIR$/shopTest/pom.xml" />
-        <option value="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/common/ServerResponse.java" />
         <option value="$PROJECT_DIR$/shopTest/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/utils/UrlSetUtils.java" />
-        <option value="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/domin/pojo/UserIn.java" />
-        <option value="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/common/ResponseCode.java" />
         <option value="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/dao/UserDao.java" />
-        <option value="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/common/Const.java" />
-        <option value="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/dao/impl/UserDaoImpl.java" />
+        <option value="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/common/ServerResponse.java" />
+        <option value="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/domin/pojo/UserIn.java" />
         <option value="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/services/UserService.java" />
+        <option value="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/common/ResponseCode.java" />
+        <option value="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/common/Const.java" />
         <option value="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/services/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/dao/impl/UserDaoImpl.java" />
       </list>
     </option>
   </component>
@@ -235,8 +240,7 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="85" />
-    <option name="y" value="25" />
+    <option name="x" value="115" />
     <option name="width" value="1750" />
     <option name="height" value="970" />
   </component>
@@ -247,6 +251,8 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -397,15 +403,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554715187153" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="E:/睿乐购/02_SSM" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -540,11 +544,15 @@
       <workItem from="1554706666182" duration="66000" />
       <workItem from="1554706760275" duration="8497000" />
       <workItem from="1554734281936" duration="2085000" />
+      <workItem from="1556113670236" duration="600000" />
+      <workItem from="1556156790241" duration="824000" />
+      <workItem from="1557311378213" duration="1621000" />
+      <workItem from="1557313974544" duration="9599000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57748000" />
+    <option name="totallyTimeSpent" value="70392000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -558,7 +566,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4978903" visible="true" weight="0.28284183" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4978903" visible="true" weight="0.21447721" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -568,12 +576,12 @@
       <window_info id="Web" order="7" sideWeight="0.5021097" side_tool="true" weight="0.24463807" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30780143" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30780143" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.29219857" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
-      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.3286119" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32765958" />
+      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32765958" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32765958" />
@@ -635,17 +643,6 @@
     <entry file="file://$PROJECT_DIR$/shopTest/src/main/resources/spring.xml" />
     <entry file="file://$PROJECT_DIR$/shopTest/src/main/resources/springmvc.xml" />
     <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/controller/DateConnect.java" />
-    <entry file="file://$PROJECT_DIR$/shopTest/src/main/resources/c3p0-config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="134" selection-start-line="8" selection-start-column="134" selection-end-line="8" selection-end-column="134" />
-          <folding>
-            <element signature="e#323#328#0" expanded="true" />
-            <element signature="e#350#355#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shopTest/src/main/webapp/js/jquery-3.3.1.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -675,34 +672,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shopTest/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/common/qq.java" />
-    <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/utils/UrlSetUtils.java">
+    <entry file="file://$PROJECT_DIR$/shopTest/src/main/resources/c3p0-config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="7" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/common/Const.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="24" column="51" lean-forward="true" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/common/ServerResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
+        <state relative-caret-position="152">
+          <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#323#328#0" expanded="true" />
+            <element signature="e#350#355#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -710,68 +687,106 @@
     <entry file="jar://$MAVEN_REPOSITORY$/commons-dbutils/commons-dbutils/1.6/commons-dbutils-1.6.jar!/org/apache/commons/dbutils/QueryRunner.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
-          <caret line="189" column="26" lean-forward="true" selection-start-line="189" selection-start-column="26" selection-end-line="189" selection-end-column="26" />
+          <caret line="114" column="17" selection-start-line="114" selection-start-column="17" selection-end-line="114" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/dao/impl/UserDaoImpl.java">
+    <entry file="file://$PROJECT_DIR$/shopTest/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="67" column="13" lean-forward="true" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
+        <state relative-caret-position="400">
+          <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/utils/UrlSetUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/common/ResponseCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/domin/pojo/UserIn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="9" selection-end-column="21" />
+        <state relative-caret-position="229">
+          <caret line="18" column="26" lean-forward="true" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="81" column="27" selection-start-line="81" selection-start-column="27" selection-end-line="81" selection-end-column="27" />
-          <folding>
-            <element signature="method#doPost#0;class#UserController#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/services/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        <state relative-caret-position="285">
+          <caret line="15" column="18" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/common/ResponseCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="43" column="12" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/common/Const.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="27" column="19" lean-forward="true" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/common/ServerResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="988">
+          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#972#973#0" expanded="true" />
+            <element signature="e#1034#1035#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-133">
+          <caret line="74" lean-forward="true" selection-start-line="74" selection-end-line="74" />
+          <folding>
+            <element signature="method#doPost#0;class#UserController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/services/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
+        <state relative-caret-position="210">
+          <caret line="174" column="34" selection-start-line="174" selection-start-column="34" selection-end-line="174" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#register#0;class#UserServiceImpl#0" />
+            <element signature="method#check_valid#0;class#UserServiceImpl#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/dao/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopTest/src/main/java/com/tfkz/dao/impl/UserDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

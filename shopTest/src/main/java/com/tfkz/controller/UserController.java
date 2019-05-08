@@ -29,29 +29,61 @@ public class UserController extends HttpServlet {
         //获取请求路径
         String method = UrlSetUtils.getMethodByUrl(request);
         switch (method){
-            case "login":
+            case "login.do":
                 login(request,response);
                 break;
-            case "register":
+            case "register.do":
                 register(request, response);
                 break;
-            case "check_valid":
+            case "check_valid.do":
                 check_valid(request,response);
                 break;
+            case "get_user_info.do":
+                get_user_info(request,response);
+            case"forget_get_question.do":
+                forget_get_question(request,response);
         }
     }
 
+    /**
+     忘记密码审核
+     */
+    private void forget_get_question(HttpServletRequest request, HttpServletResponse response) {
+        ServerResponse sr = null;
+        String username = request.getParameter("username");
+        sr = userService.forget_get_question(username);
+        UrlSetUtils.BackToJson(sr,response);
+    }
+
+
+    /**
+     获取用户信息
+     */
+    private void get_user_info(HttpServletRequest request, HttpServletResponse response) {
+        ServerResponse sr = null;
+        HttpSession session = request.getSession();
+        sr = userService.get_user_info(session);
+        UrlSetUtils.BackToJson(sr,response);
+    }
+
+
+    /**
+     检查用户名合法
+     */
     private void check_valid(HttpServletRequest request, HttpServletResponse response) {
         ServerResponse sr = null;
 
-        String uname = request.getParameter("uname");
-
+        String str = request.getParameter("str");
+        String type = request.getParameter("type");
         //返回校验信息
-        sr = userService.check_valid(uname);
+        sr = userService.check_valid(str,type);
 
         UrlSetUtils.BackToJson(sr,response);
     }
 
+    /**
+     注册用户
+     */
     private void register(HttpServletRequest request, HttpServletResponse response) {
         ServerResponse sr = null;
 

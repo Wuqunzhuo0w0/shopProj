@@ -35,7 +35,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public UserIn selectByUsername(String uname) {
         QueryRunner qr = new QueryRunner(new ComboPooledDataSource("MyConfig"));
-        String sql = "SELECT username from neuedu_user where username=?";
+        String sql = "SELECT username,password,email,phone,question,answer,role,create_time,update_time from neuedu_user where username=?";
         UserIn u = null;
         try {
             u = qr.query(sql, new BeanHandler<UserIn>(UserIn.class), uname);
@@ -52,7 +52,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public UserIn selectByEmail(String email) {
         QueryRunner qr = new QueryRunner(new ComboPooledDataSource("MyConfig"));
-        String sql = "SELECT email from neuedu_user where email=?";
+        String sql = "SELECT username,password,email,phone,question,answer,role,create_time,update_time from neuedu_user where email=?";
         UserIn u = null;
         try {
             u = qr.query(sql,new BeanHandler<>(UserIn.class),email);

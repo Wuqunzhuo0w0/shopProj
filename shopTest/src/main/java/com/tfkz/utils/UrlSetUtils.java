@@ -37,4 +37,14 @@ public class UrlSetUtils {
             e.printStackTrace();
         }
     }
+
+    /**
+     * 请求错误统一返回数据
+     */
+    public static void ErroUrl(HttpServletRequest request, HttpServletResponse response){
+        ServerResponse sr = ServerResponse.createServerResponseByError(999,"请求路径错误");
+        //把数据返回给前台
+        //数据转换成json数据格式
+        BackToJson(sr,response);
+    }
 }

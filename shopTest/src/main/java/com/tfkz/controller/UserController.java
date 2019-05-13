@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+import static com.tfkz.utils.UrlSetUtils.ErroUrl;
+
 @WebServlet(name = "UserController",value = "/user/*")
 public class UserController extends HttpServlet {
 
@@ -40,9 +42,29 @@ public class UserController extends HttpServlet {
                 break;
             case "get_user_info.do":
                 get_user_info(request,response);
+                break;
             case"forget_get_question.do":
                 forget_get_question(request,response);
+                break;
+            case "forget_check_answer.do":
+                forget_check_answer(request,response);
+                break;
+            default:
+                    UrlSetUtils.ErroUrl(request,response);
+                break;
         }
+    }
+
+    /**
+     提交问题答案
+     */
+    private void forget_check_answer(HttpServletRequest request, HttpServletResponse response) {
+        ServerResponse sr = null;
+        String username = request.getParameter("username");
+        String question = request.getParameter("question");
+        String answer = request.getParameter("answer");
+        sr = userService.forget_check_answer(username,question,answer);
+        UrlSetUtils.BackToJson(sr,response);
     }
 
     /**

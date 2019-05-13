@@ -2,13 +2,16 @@ package com.tfkz.services.impl;
 
 import com.google.gson.Gson;
 import com.tfkz.common.Const;
+import com.tfkz.common.ResponseCode;
 import com.tfkz.common.ServerResponse;
 import com.tfkz.dao.UserDao;
 import com.tfkz.dao.impl.UserDaoImpl;
 import com.tfkz.domin.pojo.UserIn;
 import com.tfkz.services.UserService;
+import com.tfkz.utils.TokenCache;
 
 import javax.servlet.http.HttpSession;
+import java.util.UUID;
 
 public class UserServiceImpl implements UserService {
 
@@ -58,9 +61,11 @@ public class UserServiceImpl implements UserService {
         u2.setEmail(u.getEmail());
         u2.setPhone(u.getPhone());
         u2.setRole(u.getRole());
+        u2.setCreateTime(u.getCreateTime());
+        u2.setUpdateTime(u.getUpdateTime());
 
         //保存session
-        session.setAttribute(Const.RoleEnum.ROLE_CUSTOMER.getDescrib(),u2);
+        session.setAttribute(Const.CURRENTUSER,u2);
 
         sr = ServerResponse.createServerResponseBySuccess(u2);
         //成功返回数据
@@ -154,7 +159,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public ServerResponse get_user_info(HttpSession session) {
         ServerResponse sr = null;
-        UserIn user = (UserIn) session.getAttribute(Const.RoleEnum.ROLE_CUSTOMER.getDescrib());
+        UserIn user = (UserIn) session.getAttribute(Const.CURRENTUSER);
         if(user==null){
             sr = ServerResponse.createServerResponseByError(Const.ReponseCodeEnum.WITHOUT_LOGIN_USER.getCode(),
                     Const.ReponseCodeEnum.WITHOUT_LOGIN_USER.getDescrib());
@@ -185,6 +190,37 @@ public class UserServiceImpl implements UserService {
             }
         }
         sr = ServerResponse.createServerResponseBySuccess(user.getQuestion());
+        return sr;
+    }
+
+    @Override
+    public ServerResponse forget_check_answer(String username, String question, String answer) {
+        ServerResponse sr = null;
+        //step1:参数校验
+        if(username==null||username.equals("")){
+            return ServerResponse.createServerResponseByError(Const.ReponseCodeEnum.EMPTY_USERNAME.getCode(),
+                    Const.ReponseCodeEnum.EMPTY_USERNAME.getDescrib());
+        }
+        if(question==null||question.equals("")){
+            return ServerResponse.createServerResponseByError(Const.ReponseCodeEnum.EMPTY_QUESTION.getCode(),
+                    Const.ReponseCodeEnum.EMPTY_QUESTION.getDescrib());
+        }
+        if(answer==null||answer.equals("")){
+            return ServerResponse.createServerResponseByError(Const.ReponseCodeEnum.EMPTY_ANSWER.getCode(),
+                    Const.ReponseCodeEnum.EMPTY_ANSWER.getDescrib());
+        }
+        //step2:根据username,question,answer查询
+        UserIn result= ud.selectByUsernameAndQuestionAndAnswer(username,question,answer);
+        if(result==null){
+            //答案错误
+            return ServerResponse.createServerResponseByError("答案错误");
+        }
+        //step3:服务端生成一个token保存并将token返回给客户端。
+        String  forgetToken= UUID.randomUUID().toString();
+        //guava cache
+        TokenCache.set(username,forgetToken);
+        //Redius 缓冲池 后续添加.
+        sr = ServerResponse.createServerResponseBySuccess(forgetToken);
         return sr;
     }
 

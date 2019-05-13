@@ -8,6 +8,7 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class UserDaoImpl implements UserDao {
     //用户登录
@@ -17,7 +18,7 @@ public class UserDaoImpl implements UserDao {
         Gson gson = new Gson();
         //创建DBUtils核心类
         QueryRunner qr = new QueryRunner(new ComboPooledDataSource("MyConfig"));
-        String sql = "SELECT username,`password`,email,phone,question,answer from neuedu_user where username=? and password=?";
+        String sql = "SELECT username,`password`,email,phone,question,answer,create_time,update_time from neuedu_user where username=? and password=?";
         UserIn u = null;
         try {
            u = qr.query(sql, new BeanHandler<UserIn>(UserIn.class), uname, password);
@@ -80,5 +81,18 @@ public class UserDaoImpl implements UserDao {
             e.printStackTrace();
         }
         return a;
+    }
+
+    @Override
+    public UserIn selectByUsernameAndQuestionAndAnswer(String username, String question, String answer) {
+        QueryRunner qr = new QueryRunner(new ComboPooledDataSource("MyConfig"));
+        String sql = "SELECT COUNT(id) from neuedu_user where username=? and question = ? and answer = ?";
+        UserIn result = null;
+        try {
+            result = qr.query(sql,new BeanHandler<>(UserIn.class),username,question,answer);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 }

@@ -11,4 +11,6 @@ public interface UserDao {
 
     //根据用户名和密码插入一条新数据
     int insertByUnameAndPsd(String uname, String psd, String email, String phone, String question, String answer);
+
+    UserIn selectByUsernameAndQuestionAndAnswer(String username, String question, String answer);
 }

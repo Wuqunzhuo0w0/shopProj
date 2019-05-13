@@ -14,4 +14,6 @@ public interface UserService {
     ServerResponse get_user_info(HttpSession session);
 
     ServerResponse forget_get_question(String username);
+
+    ServerResponse forget_check_answer(String username,String question,String answer);
 }

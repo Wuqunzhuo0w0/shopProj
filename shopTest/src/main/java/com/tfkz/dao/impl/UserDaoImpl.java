@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import com.tfkz.dao.UserDao;
 import com.tfkz.domin.pojo.UserIn;
+import com.tfkz.utils.MD5Utils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 
@@ -90,6 +91,19 @@ public class UserDaoImpl implements UserDao {
         UserIn result = null;
         try {
             result = qr.query(sql,new BeanHandler<>(UserIn.class),username,question,answer);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @Override
+    public int updateUserPassowrd(String username, String password) {
+        QueryRunner qr = new QueryRunner(new ComboPooledDataSource("MyConfig"));
+        String sql = "UPDATE neuedu_user set `password`=? WHERE username=?";
+        int result=0;
+        try {
+            result = qr.update(sql,password,username);
         } catch (SQLException e) {
             e.printStackTrace();
         }

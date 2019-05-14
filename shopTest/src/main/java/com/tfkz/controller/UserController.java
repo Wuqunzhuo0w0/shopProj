@@ -5,6 +5,7 @@ import com.tfkz.common.ServerResponse;
 import com.tfkz.domin.pojo.UserIn;
 import com.tfkz.services.UserService;
 import com.tfkz.services.impl.UserServiceImpl;
+import com.tfkz.utils.MD5Utils;
 import com.tfkz.utils.UrlSetUtils;
 
 import javax.servlet.ServletException;
@@ -49,10 +50,37 @@ public class UserController extends HttpServlet {
             case "forget_check_answer.do":
                 forget_check_answer(request,response);
                 break;
+            case "forget_reset_password.do":
+                forget_reset_password(request,response);
+                break;
+            case "reset_password.do":
+                reset_password(request,response);
+                break;
             default:
                     UrlSetUtils.ErroUrl(request,response);
                 break;
         }
+    }
+
+    private void reset_password(HttpServletRequest request, HttpServletResponse response) {
+        ServerResponse sr = null;
+        String passwordOld = request.getParameter("passwordOld");
+        String passwordNew = request.getParameter("passwordNew");
+        HttpSession session = request.getSession();
+        sr = userService.reset_password(session,passwordOld,passwordNew);
+        UrlSetUtils.BackToJson(sr,response);
+    }
+
+    /**
+     忘记密码重设密码
+     */
+    private void forget_reset_password(HttpServletRequest request, HttpServletResponse response) {
+        ServerResponse sr = null;
+        String username = request.getParameter("username");
+        String passwordNew = request.getParameter("passwordNew");
+        String forgetToken = request.getParameter("forgetToken");
+        sr = userService.forget_reset_password(username,passwordNew,forgetToken);
+        UrlSetUtils.BackToJson(sr,response);
     }
 
     /**
@@ -125,9 +153,11 @@ public class UserController extends HttpServlet {
 
     public void login(HttpServletRequest request, HttpServletResponse response){
         ServerResponse sr = null;
-
-        String uname = request.getParameter("uname");
-        String password = request.getParameter("psd");
+        System.out.println(MD5Utils.getMD5Code("888888"));
+        System.out.println(MD5Utils.getMD5Code("111111"));
+        System.out.println(MD5Utils.getMD5Code("小赵"));
+        String uname = request.getParameter("username");
+        String password = request.getParameter("password");
 
         //创建session
         HttpSession session = request.getSession();

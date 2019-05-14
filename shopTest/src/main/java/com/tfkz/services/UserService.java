@@ -16,4 +16,8 @@ public interface UserService {
     ServerResponse forget_get_question(String username);
 
     ServerResponse forget_check_answer(String username,String question,String answer);
+
+    ServerResponse forget_reset_password(String username, String passwordNew, String token);
+
+    ServerResponse reset_password(HttpSession session,String passwordOld, String passwordNew);
 }

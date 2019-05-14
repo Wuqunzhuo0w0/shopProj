@@ -1,6 +1,5 @@
 package com.tfkz.services.impl;
 
-import com.google.gson.Gson;
 import com.tfkz.common.Const;
 import com.tfkz.common.ResponseCode;
 import com.tfkz.common.ServerResponse;
@@ -8,6 +7,7 @@ import com.tfkz.dao.UserDao;
 import com.tfkz.dao.impl.UserDaoImpl;
 import com.tfkz.domin.pojo.UserIn;
 import com.tfkz.services.UserService;
+import com.tfkz.utils.MD5Utils;
 import com.tfkz.utils.TokenCache;
 
 import javax.servlet.http.HttpSession;
@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
             return sr;
         }
         //去数据库中判断密码是否正确
-        UserIn u = ud.selectByUnameAndPsd(uname,psd);
+        UserIn u = ud.selectByUnameAndPsd(uname,MD5Utils.getMD5Code(psd));
         if(u == null){
             //返回错误状态码和信息
             sr = ServerResponse.createServerResponseByError(
@@ -108,7 +108,7 @@ public class UserServiceImpl implements UserService {
         }
 
         int reg_code=0;
-        reg_code = ud.insertByUnameAndPsd(uname,psd,email,phone,question,answer);
+        reg_code = ud.insertByUnameAndPsd(uname, MD5Utils.getMD5Code(psd),email,phone,question,answer);
 
         if(reg_code>0){
             //说明用户注册成功了
@@ -222,6 +222,62 @@ public class UserServiceImpl implements UserService {
         //Redius 缓冲池 后续添加.
         sr = ServerResponse.createServerResponseBySuccess(forgetToken);
         return sr;
+    }
+
+    @Override
+    public ServerResponse forget_reset_password(String username, String passwordNew, String forgetToken) {
+        if(username==null||username.equals("")){
+            return ServerResponse.createServerResponseByError("用户名不能为空");
+        }
+        if(passwordNew==null||passwordNew.equals("")){
+            return ServerResponse.createServerResponseByError("密码不能为空");
+        }
+        if(forgetToken==null||forgetToken.equals("")){
+            return ServerResponse.createServerResponseByError("token不能为空");
+        }
+
+        //step2:token校验
+        String token= TokenCache.get(username);
+        if(token==null){
+            return ServerResponse.createServerResponseByError(Const.ReponseCodeEnum.TIMEOUT_TOKEN.getCode(),
+                    Const.ReponseCodeEnum.TIMEOUT_TOKEN.getDescrib());
+        }
+        if(!token.equals(forgetToken)){
+            return ServerResponse.createServerResponseByError(Const.ReponseCodeEnum.UNVALID_TOKEN.getCode(),
+                    Const.ReponseCodeEnum.UNVALID_TOKEN.getDescrib());
+        }
+
+        //step3:修改密码
+        int result= ud.updateUserPassowrd(username,MD5Utils.getMD5Code(passwordNew));
+        if(result>0){
+            return ServerResponse.createServerResponseBySuccess();
+        }
+        return ServerResponse.createServerResponseByError(ResponseCode.ERROR_PASSWORD,"密码修改失败");
+    }
+
+    @Override
+    public ServerResponse reset_password(HttpSession session, String passwordOld, String passwordNew) {
+
+        if(passwordOld==null||passwordOld.equals("")){
+            return ServerResponse.createServerResponseByError("用户名旧密码不能为空");
+        }
+        if(passwordNew==null||passwordNew.equals("")){
+            return ServerResponse.createServerResponseByError("用户新密码不能为空");
+        }
+        UserIn userInfo=(UserIn) session.getAttribute(Const.CURRENTUSER);
+        if (userInfo==null){
+            return ServerResponse.createServerResponseByError(ResponseCode.WITHOUT_LOGIN_USER,"用户未登录，无法获取当前用户信息");
+        }
+        UserIn userIn = ud.selectByUnameAndPsd(userInfo.getUsername(),MD5Utils.getMD5Code(passwordOld));
+        if(userIn == null){
+            return  ServerResponse.createServerResponseByError(ResponseCode.ERROR_PASSWORD,"旧密码输入错误");
+        }
+        Integer result;
+        result = ud.updateUserPassowrd(userInfo.getUsername(),MD5Utils.getMD5Code(passwordNew));
+        if(result>0){
+            return ServerResponse.createServerResponseBySuccess("修改密码成功");
+        }else return ServerResponse.createServerResponseByError("密码修改失败");
+
     }
 
 

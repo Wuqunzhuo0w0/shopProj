@@ -13,4 +13,6 @@ public interface UserDao {
     int insertByUnameAndPsd(String uname, String psd, String email, String phone, String question, String answer);
 
     UserIn selectByUsernameAndQuestionAndAnswer(String username, String question, String answer);
+
+    int updateUserPassowrd(String username,String password);
 }

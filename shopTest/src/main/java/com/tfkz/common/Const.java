@@ -26,6 +26,8 @@ public class Const {
         SUCCESS_MSG(ResponseCode.SUCESS,"校验成功"),
         WITHOUT_LOGIN_USER(ResponseCode.WITHOUT_LOGIN_USER,"用户未登录，无法获取当前用户信息"),
         UNINITIALIZE_QIESTION(ResponseCode.EMPTY_QUESTION,"忘记密码 用户未设置找回密码问题"),
+        TIMEOUT_TOKEN(ResponseCode.TIMEOUT_TOKEN,"token已经失效"),
+        UNVALID_TOKEN(ResponseCode.UNVALID_TOKEN,"非法的token"),
         ;
 
         private int code;

@@ -45,6 +45,15 @@ public class ResponseCode {
      */
     public static final int EMPTY_QUESTION=1;
 
+    /**
+     *token已经失效
+     */
+    public static final int TIMEOUT_TOKEN=103;
+
+    /**
+     * 非法的token
+     */
+    public static final int UNVALID_TOKEN=103;
 
 
 }

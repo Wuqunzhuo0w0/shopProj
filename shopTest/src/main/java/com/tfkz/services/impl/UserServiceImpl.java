@@ -280,5 +280,21 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public ServerResponse update_information(HttpSession session,String email, String phone, String question, String answer) {
+        UserIn userIn = (UserIn) session.getAttribute(Const.CURRENTUSER);
+        if(userIn==null){
+            return ServerResponse.createServerResponseByError(ResponseCode.WITHOUT_LOGIN_USER,"用户未登录");
+        }
+        Integer id = userIn.getId();
+        int result=0;
+        result= ud.updateUserInfoById(id,email,phone,question,answer);
+        if(result>0){
+            return ServerResponse.createServerResponseBySuccess();
+        }
+        return ServerResponse.createServerResponseByError("更新失败");
+
+    }
+
 
 }

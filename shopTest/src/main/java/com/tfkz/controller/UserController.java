@@ -56,12 +56,34 @@ public class UserController extends HttpServlet {
             case "reset_password.do":
                 reset_password(request,response);
                 break;
+            case "update_information.do":
+                update_information(request,response);
+                break;
             default:
                     UrlSetUtils.ErroUrl(request,response);
                 break;
         }
     }
 
+    /**
+     登录状态更新个人信息
+     */
+    private void update_information(HttpServletRequest request, HttpServletResponse response) {
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        String question = request.getParameter("questuin");
+        String answer = request.getParameter("answer");
+        HttpSession session = request.getSession();
+        ServerResponse serverResponse = userService.update_information(session,email,phone,question,answer);
+        if(serverResponse.isSuccess()){
+            //找出更新的用户
+            //更新session
+        }
+    }
+
+    /**
+     登录中状态重置密码
+     */
     private void reset_password(HttpServletRequest request, HttpServletResponse response) {
         ServerResponse sr = null;
         String passwordOld = request.getParameter("passwordOld");

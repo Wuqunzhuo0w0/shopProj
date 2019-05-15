@@ -109,4 +109,17 @@ public class UserDaoImpl implements UserDao {
         }
         return result;
     }
+
+    @Override
+    public int updateUserInfoById(Integer id, String email, String phone, String question, String answer) {
+        QueryRunner qr = new QueryRunner(new ComboPooledDataSource("MyConfig"));
+        String sql = "UPDATE neuedu_user set `email`=? , phone=? , question=? , answer=? WHERE id=?";
+        int result = 0;
+        try {
+            result = qr.update(sql,email,phone,question,answer,id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

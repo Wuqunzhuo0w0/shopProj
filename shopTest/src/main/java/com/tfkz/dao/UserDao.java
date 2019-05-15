@@ -15,4 +15,6 @@ public interface UserDao {
     UserIn selectByUsernameAndQuestionAndAnswer(String username, String question, String answer);
 
     int updateUserPassowrd(String username,String password);
+
+    int updateUserInfoById(Integer id, String email, String phone, String question, String answer);
 }

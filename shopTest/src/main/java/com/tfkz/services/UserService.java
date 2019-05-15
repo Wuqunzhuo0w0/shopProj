@@ -20,4 +20,6 @@ public interface UserService {
     ServerResponse forget_reset_password(String username, String passwordNew, String token);
 
     ServerResponse reset_password(HttpSession session,String passwordOld, String passwordNew);
+
+    ServerResponse update_information(HttpSession session,String email, String phone, String question, String answer);
 }

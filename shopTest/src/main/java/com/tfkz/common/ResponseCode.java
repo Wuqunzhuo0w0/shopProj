@@ -55,5 +55,4 @@ public class ResponseCode {
      */
     public static final int UNVALID_TOKEN=103;
 
-
 }

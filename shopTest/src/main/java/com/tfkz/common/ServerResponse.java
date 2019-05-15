@@ -1,5 +1,6 @@
 package com.tfkz.common;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import java.io.Serializable;
@@ -74,4 +75,10 @@ public class ServerResponse<T> implements Serializable {
     public static ServerResponse createServerResponseByError(int status,String message){
         return  new ServerResponse(status,message);
     }
+
+    @JsonIgnore
+    public    boolean isSuccess(){
+        return  this.status==ResponseCode.SUCESS;
+    }
+
 }

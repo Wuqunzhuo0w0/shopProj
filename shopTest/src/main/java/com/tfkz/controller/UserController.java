@@ -1,6 +1,7 @@
 package com.tfkz.controller;
 
 import com.google.gson.Gson;
+import com.tfkz.common.Const;
 import com.tfkz.common.ServerResponse;
 import com.tfkz.domin.pojo.UserIn;
 import com.tfkz.services.UserService;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 import static com.tfkz.utils.UrlSetUtils.ErroUrl;
+
 
 @WebServlet(name = "UserController",value = "/user/*")
 public class UserController extends HttpServlet {
@@ -59,10 +61,18 @@ public class UserController extends HttpServlet {
             case "update_information.do":
                 update_information(request,response);
                 break;
+            case "logout.do":
+                logout(request,response);
+                break;
             default:
                     UrlSetUtils.ErroUrl(request,response);
                 break;
         }
+    }
+
+    private void logout(HttpServletRequest request, HttpServletResponse response) {
+            request.getSession().removeAttribute(Const.CURRENTUSER);
+            UrlSetUtils.BackToJson(ServerResponse.createServerResponseBySuccess(),response);
     }
 
     /**
@@ -71,14 +81,11 @@ public class UserController extends HttpServlet {
     private void update_information(HttpServletRequest request, HttpServletResponse response) {
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
-        String question = request.getParameter("questuin");
+        String question = request.getParameter("question");
         String answer = request.getParameter("answer");
         HttpSession session = request.getSession();
-        ServerResponse serverResponse = userService.update_information(session,email,phone,question,answer);
-        if(serverResponse.isSuccess()){
-            //找出更新的用户
-            //更新session
-        }
+        ServerResponse sr = userService.update_information(session,email,phone,question,answer);
+        UrlSetUtils.BackToJson(sr,response);
     }
 
     /**
@@ -174,10 +181,8 @@ public class UserController extends HttpServlet {
 
 
     public void login(HttpServletRequest request, HttpServletResponse response){
+        response.setHeader("Access-Control-Allow-Origin","*");
         ServerResponse sr = null;
-        System.out.println(MD5Utils.getMD5Code("888888"));
-        System.out.println(MD5Utils.getMD5Code("111111"));
-        System.out.println(MD5Utils.getMD5Code("小赵"));
         String uname = request.getParameter("username");
         String password = request.getParameter("password");
 

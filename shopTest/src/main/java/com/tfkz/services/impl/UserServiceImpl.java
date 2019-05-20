@@ -281,7 +281,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ServerResponse update_information(HttpSession session,String email, String phone, String question, String answer) {
+    public ServerResponse update_information(HttpSession session, String email, String phone, String question, String answer) {
         UserIn userIn = (UserIn) session.getAttribute(Const.CURRENTUSER);
         if(userIn==null){
             return ServerResponse.createServerResponseByError(ResponseCode.WITHOUT_LOGIN_USER,"用户未登录");
@@ -290,7 +290,12 @@ public class UserServiceImpl implements UserService {
         int result=0;
         result= ud.updateUserInfoById(id,email,phone,question,answer);
         if(result>0){
-            return ServerResponse.createServerResponseBySuccess();
+            userIn.setEmail(email);
+            userIn.setPhone(phone);
+            userIn.setQuestion(question);
+            userIn.setAnswer(answer);
+            session.setAttribute(Const.CURRENTUSER,userIn);
+            return ServerResponse.createServerResponseBySuccess("更新成功");
         }
         return ServerResponse.createServerResponseByError("更新失败");
 

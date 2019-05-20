@@ -17,4 +17,5 @@ public interface UserDao {
     int updateUserPassowrd(String username,String password);
 
     int updateUserInfoById(Integer id, String email, String phone, String question, String answer);
+
 }

@@ -32,7 +32,8 @@ public class UrlSetUtils {
         response.setContentType("text/json;charset=utf-8");
 
         try {
-            response.getWriter().println(s);
+            response.setHeader("Access-Control-Allow-Origin","*");
+            response.getWriter().print(s);
         } catch (IOException e) {
             e.printStackTrace();
         }

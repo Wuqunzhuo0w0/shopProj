@@ -19,7 +19,7 @@ public class UserDaoImpl implements UserDao {
         Gson gson = new Gson();
         //创建DBUtils核心类
         QueryRunner qr = new QueryRunner(new ComboPooledDataSource("MyConfig"));
-        String sql = "SELECT username,`password`,email,phone,question,answer,create_time,update_time from neuedu_user where username=? and password=?";
+        String sql = "SELECT id,username,`password`,email,phone,question,answer,create_time,update_time from neuedu_user where username=? and password=?";
         UserIn u = null;
         try {
            u = qr.query(sql, new BeanHandler<UserIn>(UserIn.class), uname, password);
@@ -122,4 +122,5 @@ public class UserDaoImpl implements UserDao {
         }
         return result;
     }
+
 }

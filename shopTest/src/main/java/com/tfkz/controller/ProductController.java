@@ -28,7 +28,7 @@ public class ProductController extends HttpServlet {
             case "topcategory":
                 topcategory(request, response);
                 break;
-            case "detail":
+            case "detail.do":
                 detail(request, response);
                 break;
             //没有请求类型时返回
@@ -53,7 +53,7 @@ public class ProductController extends HttpServlet {
         String sid = request.getParameter("sid");
 
         //传到业务层处理,这里直接调用商品分类业务中，获取所有子分类的方法获取即可
-
+        sr = ps.topcategory(sid);
         //数据转换成json数据格式
         //数据返回给浏览器
         UrlSetUtils.BackToJson(sr, response);
@@ -62,12 +62,15 @@ public class ProductController extends HttpServlet {
     //根据商品ID获取产品详情
     private void detail(HttpServletRequest request, HttpServletResponse response) {
         //创建高可复用类接受数据
-
+        ServerResponse sr = null;
         //获取前台传来的商品参数
-        String productId = request.getParameter("productId");
+        Integer productId = Integer.valueOf(request.getParameter("productId"));
+        Integer is_new  = Integer.valueOf(request.getParameter("is_new"));
+        Integer is_hot = Integer.valueOf(request.getParameter("is_hot"));
+        Integer is_banner = Integer.valueOf(request.getParameter("is_banner"));
 
         //传到业务层处理,这里直接调用商品分类业务中，获取所有子分类的方法获取即可
-        ServerResponse sr = ps.selectByProductId(productId);
+        sr = ps.getDetail(productId,is_new,is_hot,is_banner);
 
         //数据转换成json数据格式
         //数据返回给浏览器

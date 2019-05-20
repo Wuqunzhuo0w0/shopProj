@@ -54,5 +54,16 @@ public class ResponseCode {
      * 非法的token
      */
     public static final int UNVALID_TOKEN=103;
+    /*=====================商品相关==========================*/
+
+    /**
+     * 商品参数错误
+     */
+    public static final int ERROR_PAMAR = 1;
+
+    /**
+     * 商品已下架
+     */
+    public static final int NO_PRODUCT = 4;
 
 }

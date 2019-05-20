@@ -18,6 +18,6 @@ public class UserIn {
     private String question;
     private String answer;
     private String role;
-    private Date createTime;
-    private Date updateTime;
+    private Date create_time;
+    private Date update_time;
 }
